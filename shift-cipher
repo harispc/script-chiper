@@ -1,0 +1,21 @@
+# Program Dekripsi Caesar Cipher Sederhana
+
+# Input dari pengguna
+chipertext = input("Masukkan teks terenkripsi: ")
+key = int(input("Masukkan kunci: "))
+hasil = ""
+
+# Proses dekripsi
+for huruf in chipertext:
+    if huruf.isalpha():
+        kode = ord(huruf) - key
+        if huruf.islower() and kode < ord('a'):
+            kode += 26
+        elif huruf.isupper() and kode < ord('A'):
+            kode += 26
+        hasil += chr(kode)
+    else:
+        hasil += huruf
+
+# Output hasil
+print("Hasil dekripsi:", hasil)
