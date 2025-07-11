@@ -1,0 +1,28 @@
+import string
+
+def rot13(text):
+    abjad = string.ascii_uppercase
+    trans = str.maketrans(abjad + abjad.lower(),
+                          abjad[13:] + abjad[:13] + abjad[13:].lower() + abjad[:13].lower())
+    return text.translate(trans)
+
+def rot18(text):
+    abjad = string.ascii_uppercase
+    angka = '0123456789'
+    trans = str.maketrans(
+        abjad + abjad.lower() + angka,
+        abjad[13:] + abjad[:13] + abjad[13:].lower() + abjad[:13].lower() + angka[5:] + angka[:5]
+    )
+    return text.translate(trans)
+
+# Input
+text = input("Masukkan teks: ")
+mode = input("Pilih mode (rot13/rot18): ").lower()
+
+# Eksekusi
+if mode == "rot13":
+    print("Hasil:", rot13(text))
+elif mode == "rot18":
+    print("Hasil:", rot18(text))
+else:
+    print("Mode tidak dikenali.")
